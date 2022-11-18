@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touch Nums</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInit()">
+    <div class="flex column game-modal">
+        <h3>You win !</h3>
+        <button onclick="onReset()">Reset</button>
+        <select class="game-size-input" onchange="onSetLength(+this.value)">
+            <option value="4">16</option>
+            <option value="5">25</option>
+            <option value="6">36</option>
+        </select>
+    </div>
+    <div class="flex column game-container">
+        <h1>Touch the numbers</h1>
+        <h3>Time: <span class="timer">0:00</span></h3>
+        <table>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
