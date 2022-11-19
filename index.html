@@ -35,7 +35,7 @@
     <div class="flex column main-layout hidden modal game-modal">
         <h3 class="modal-message"></h3>
         <button onclick="onReset()">Play again</button>
-        <select class="game-size-input" onchange="onSetLength(event, +this.value)">
+        <select class="game-size-input" onchange="onSetLength(+this.value)">
             <option value="4">16</option>
             <option value="5">25</option>
             <option value="6">36</option>
