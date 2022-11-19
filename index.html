@@ -18,18 +18,24 @@
             </div>
         </div>
     </header>
-    <div class="hidden options-warpper" onclick="onToggleOptions(event)">
+    <div class="hidden options-warpper">
         <section class="flex column main-layout modal options-modal">
             <button class="close-modal-btn" onclick="onToggleOptions(event)">✕</button>
             <p class="game-rules">
                 <span class="game-rules-title">Game rules:</span> The goal is to press each number in chronical order
             </p>
+            <h4>Game size</h4>
+                <select class="game-size-input" onchange="onSetLength(+this.value)">
+                    <option value="4">16</option>
+                    <option value="5">25</option>
+                    <option value="6">36</option>
+                </select>
         </section>
     </div>
     <div class="flex column main-layout hidden modal game-modal">
         <h3 class="modal-message"></h3>
         <button onclick="onReset()">Play again</button>
-        <select class="game-size-input" onchange="onSetLength(+this.value)">
+        <select class="game-size-input" onchange="onSetLength(event, +this.value)">
             <option value="4">16</option>
             <option value="5">25</option>
             <option value="6">36</option>

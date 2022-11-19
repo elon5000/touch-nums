@@ -20,6 +20,7 @@ function onReset() {
 
 function onSetLength(length) {
     gLength = length
+    onInit()
 }
 
 function onCellClicked(clickedNum) {
