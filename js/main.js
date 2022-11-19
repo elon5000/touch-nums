@@ -8,6 +8,7 @@ let gGameInterval
 
 function onInit() {
     gCurrNumber = 1
+    clearTimer()
     gBoard = makeBoard(gLength ** 2)
     renderBoard(gBoard)
 }
@@ -40,7 +41,6 @@ function startStopWatch() {
         const elTimer = document.querySelector('.timer')
         elTimer.innerText = passedTime.toFixed(2)
     }, 100)
-    console.log(gGameInterval)
 }
 
 function markCell(cellNum) {
@@ -53,10 +53,12 @@ function renderBoard(board) {
     const length = board.length ** 0.5
     let strHTML = ''
     for (let i = 0; i < length; i++) {
-        strHTML += '<tr>'
+        strHTML += '<tr class="flex row">'
         for (let j = 0; j < length; j++) {
             const randomNum = board.pop()
-            strHTML += `<td class="cell-${randomNum}" onclick="onCellClicked(${randomNum})">${randomNum}</td>`
+            strHTML += `<td class="flex column cell-${randomNum}" onclick="onCellClicked(${randomNum})">
+            <h5>${randomNum}</h5>
+            </td>`
         }
         strHTML += '</tr>'
     }
@@ -65,7 +67,7 @@ function renderBoard(board) {
 
 function onWin() {
     clearInterval(gGameInterval)
-    toggleModal()
+    toggleModal('You win !')
 }
 
 function makeBoard(length = 16) {
@@ -90,9 +92,23 @@ function setGNums(length = 16) {
     gNums = nums
 }
 
-function toggleModal() {
+function clearTimer() {
+    const elTimer = document.querySelector('.timer')
+    if (gGameInterval) clearInterval(gGameInterval)
+    elTimer.innerText = '0:00'
+}
+
+function toggleModal(message = '') {
     const elModal = document.querySelector('.game-modal')
+    const elMessage = elModal.querySelector('.modal-message')
+    elMessage.innerText = message
     elModal.classList.toggle('hidden')
+}
+
+function onToggleOptions(ev) {
+    ev.stopPropagation()
+    const elOptionsWarpper = document.querySelector('.options-warpper')
+    elOptionsWarpper.classList.toggle('hidden')
 }
 
 function getRandomInt(min, max) {

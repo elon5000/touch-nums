@@ -9,23 +9,41 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="onInit()">
-    <div class="flex column hidden game-modal">
-        <h3>You win !</h3>
-        <button onclick="onReset()">Reset</button>
+<body class="flex column" onload="onInit()">
+    <header class="flex row full-layout">
+        <div class="flex row main-layout header-warpper">
+            <h1 class="main-layout logo" onclick="onInit()">TouchNums</h1>
+            <div class="flex row btn-container">
+                <button class="options-btn" onclick="onToggleOptions(event)">?</button>
+            </div>
+        </div>
+    </header>
+    <div class="hidden options-warpper" onclick="onToggleOptions(event)">
+        <section class="flex column main-layout modal options-modal">
+            <button class="close-modal-btn" onclick="onToggleOptions(event)">✕</button>
+            <p class="game-rules">
+                <span class="game-rules-title">Game rules:</span> The goal is to press each number in chronical order
+            </p>
+        </section>
+    </div>
+    <div class="flex column main-layout hidden modal game-modal">
+        <h3 class="modal-message"></h3>
+        <button onclick="onReset()">Play again</button>
         <select class="game-size-input" onchange="onSetLength(+this.value)">
             <option value="4">16</option>
             <option value="5">25</option>
             <option value="6">36</option>
         </select>
     </div>
-    <div class="flex column game-container">
-        <h1>Touch the numbers</h1>
-        <h3>Time: <span class="timer">0:00</span></h3>
-        <table>
-            <tbody></tbody>
+    <main class="flex column main-layout game-container">
+        <h3 class="timer">Time: <span class="timer"></span></h3>
+        <table class="flex">
+            <tbody class="flex column"></tbody>
         </table>
-    </div>
+    </main>
+    <footer>
+        <h3 class="copyright">cofferights ©20222</h3>
+    </footer>
     <script src="js/main.js"></script>
 </body>
 
