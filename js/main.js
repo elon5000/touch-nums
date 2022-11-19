@@ -14,7 +14,7 @@ function onInit() {
 }
 
 function onReset() {
-    toggleModal()
+    onToggleModal()
     onInit()
 }
 
@@ -57,7 +57,7 @@ function renderBoard(board) {
         strHTML += '<tr class="flex row">'
         for (let j = 0; j < length; j++) {
             const randomNum = board.pop()
-            strHTML += `<td class="flex column cell-${randomNum}" onclick="onCellClicked(${randomNum})">
+            strHTML += `<td class="flex column cell-${randomNum}" title=${randomNum} onclick="onCellClicked(${randomNum})">
             <h5>${randomNum}</h5>
             </td>`
         }
@@ -68,7 +68,7 @@ function renderBoard(board) {
 
 function onWin() {
     clearInterval(gGameInterval)
-    toggleModal('You win !')
+    onToggleModal('You win !')
 }
 
 function makeBoard(length = 16) {
@@ -99,7 +99,7 @@ function clearTimer() {
     elTimer.innerText = '0:00'
 }
 
-function toggleModal(message = '') {
+function onToggleModal(message = '') {
     const elModal = document.querySelector('.game-modal')
     const elMessage = elModal.querySelector('.modal-message')
     elMessage.innerText = message

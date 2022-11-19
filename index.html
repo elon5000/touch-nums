@@ -7,42 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Touch Nums</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/x-icon" href="imgs/fav.png">
 </head>
 
 <body class="flex column" onload="onInit()">
     <header class="flex row full-layout">
         <div class="flex row main-layout header-warpper">
-            <h1 class="main-layout logo" onclick="onInit()">TouchNums</h1>
+            <h1 class="main-layout logo" title="Logo" onclick="onInit()">TouchNums</h1>
             <div class="flex row btn-container">
-                <button class="options-btn" onclick="onToggleOptions(event)">?</button>
+                <button class="options-btn" title="Options button" onclick="onToggleOptions(event)">?</button>
             </div>
         </div>
     </header>
     <div class="hidden options-warpper">
         <section class="flex column main-layout modal options-modal">
-            <button class="close-modal-btn" onclick="onToggleOptions(event)">✕</button>
-            <p class="game-rules">
+            <button class="close-modal-btn" title="Close modal" onclick="onToggleOptions(event)">✕</button>
+            <p class="game-rules" title="Game-rules">
                 <span class="game-rules-title">Game rules:</span> The goal is to press each number in chronical order
             </p>
             <h4>Game size</h4>
-                <select class="game-size-input" onchange="onSetLength(+this.value)">
-                    <option value="4">16</option>
-                    <option value="5">25</option>
-                    <option value="6">36</option>
+                <select class="game-size-input" title="Select game size" onchange="onSetLength(+this.value)">
+                    <option title="16" value="4">16</option>
+                    <option title="25" value="5">25</option>
+                    <option title="36" value="6">36</option>
                 </select>
         </section>
     </div>
     <div class="flex column main-layout hidden modal game-modal">
-        <h3 class="modal-message"></h3>
-        <button onclick="onReset()">Play again</button>
-        <select class="game-size-input" onchange="onSetLength(+this.value)">
-            <option value="4">16</option>
-            <option value="5">25</option>
-            <option value="6">36</option>
+        <h3 class="modal-message" title="Message"></h3>
+        <button title="Play again" onclick="onReset()">Play again</button>
+        <select class="game-size-input" title="Select game size" onchange="onSetLength(+this.value)">
+            <option title="16" value="4">16</option>
+            <option title="25" value="5">25</option>
+            <option title="36" value="6">36</option>
         </select>
     </div>
     <main class="flex column main-layout game-container">
-        <h3 class="timer">Time: <span class="timer"></span></h3>
+        <h3 class="timer-container" title="Timer">Time: <span class="timer"></span></h3>
         <table class="flex">
             <tbody class="flex column"></tbody>
         </table>

@@ -35,7 +35,7 @@
 .modal {
     top: 50%;
     left: 50%;
-    height: 50vh;
+    height: 54vh;
     position: fixed;
     border-radius: 8px;
     align-items: center;
@@ -103,6 +103,7 @@ header {
 .options-modal {
     z-index: 5;
     padding: 2vh;
+    cursor: default;
 }
 
 .close-modal-btn {
@@ -154,8 +155,9 @@ select {
     justify-content: space-around;
 }
 
-.timer {
+.timer-container {
     padding: 2vh 0;
+    cursor: default;
     font-size: 1.6rem;
 }
 
